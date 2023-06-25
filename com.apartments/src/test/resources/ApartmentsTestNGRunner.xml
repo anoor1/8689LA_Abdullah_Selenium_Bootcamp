@@ -7,6 +7,6 @@
     </listeners>
 
     <parameter name="browser" value="chrome"/>
-    <parameter name="url" value="https://www.apartments.com"/>
+    <parameter name="url" value="https://www.apartments.pom"/>
 
 </suite>
