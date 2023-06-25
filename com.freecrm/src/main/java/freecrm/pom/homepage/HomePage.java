@@ -1,8 +1,7 @@
 package freecrm.pom.homepage;
 
 import base.BasePage;
-import freecrm.pom.signuppage.SignUpPage;
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
+import freecrm.pom.loginpage.DashboardPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -13,14 +12,22 @@ public class HomePage extends BasePage {
 
         PageFactory.initElements(driver, this);
     }
-    @FindBy(xpath = "//a[contains(text(),'Sign Up')]")
-    public WebElement signUpButton;
 
-    public SignUpPage clickSignUpButton(){
-        safeClickOnElement(signUpButton);
+    @FindBy(xpath = "//span[normalize-space()='Log In']")
+    public WebElement loginButton;
 
-        return new SignUpPage();
+    public DashboardPage clickOnLoginButton() {
+        safeClickOnElement(loginButton);
+
+        return new DashboardPage();
+    }
+
+
+
+
+
+
 
     }
 
-}
+
