@@ -1,4 +1,2 @@
-package apartments.pom.homepage;
-
-public class HomePage {
+package apartments.pom.signuppage.homepage;public class HomePage {
 }
