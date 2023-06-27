@@ -1,4 +1,4 @@
-package test_registration;
+package testlogin;
 
 import base.BasePage;
 import freecrm.pom.homepage.HomePage;
@@ -34,6 +34,22 @@ public void testLogin(String email,String pass){
         return data;
 
     }
+    @Test(priority = 2, groups={"smoke"})
+    public void testLogOut(){
+        HomePage homePage= new HomePage();
+        DashboardPage dashboardPage=new DashboardPage();
+
+
+        LoginPage loginPage= homePage.clickOnLoginButton;
+        String email="abdullah.noor14@gmail.com";
+        String password="Abcd1234!";
+
+        loginPage.doSignIn(email,password);
+        dashboardPage.doLogOut();
+
+        Assert.assertTrue(isElementVisible(loginPage.loginButton));
     }
+    }
+
 
 

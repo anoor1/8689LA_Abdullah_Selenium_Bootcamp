@@ -1,23 +1,25 @@
-package test_registration;
+package testauthentication;
 
-import apartments.pom.signuppage.SignUpPage;
+import apartments.pom.homepage.HomePage;
+import apartments.pom.authenticationpage.SignUpPage;
 import base.BasePage;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utils.ExcelData;
 
-public class TestRegistration extends BasePage {
+public class TestSignUp extends BasePage {
 
     @Test(priority= 1, groups= {"BAT"},dataProvider = "signupdataprovider")
-    public void userSignUp(String firstname,String lastname,String email,String password){
+    public void testUserSignUp(String firstname,String lastname,String email,String password){
         SignUpPage signUpPage = new SignUpPage();
+        HomePage homePage = new HomePage();
         signUpPage.doSignUp(firstname,lastname,email,password);
-        Assert.assertTrue(checkElementPresent(signUpPage.loggedInUsername));
+        Assert.assertTrue(checkElementPresent(homePage.loggedInUsername));
     }
 
     @DataProvider(name="signupdataprovider")
-    public String[][] signupUserDataProvider()
+    public String[][] testSignupUserDataProvider()
     {
 
         String path= System.getProperty("user.dir")+"\\testdata\\test_data.xlsx";
