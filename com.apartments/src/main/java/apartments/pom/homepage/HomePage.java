@@ -1,7 +1,6 @@
 package apartments.pom.homepage;
 
 import apartments.pom.authenticationpage.SignInPage;
-import apartments.pom.authenticationpage.SignUpPage;
 import base.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,14 +26,8 @@ public class HomePage extends BasePage {
 
         return new SignInPage();
     }
-    public SignUpPage clickSignUpButton(){
-        safeClickOnElement(signupButton);
 
-        return new SignUpPage();
     }
 
 
 
-
-
-}

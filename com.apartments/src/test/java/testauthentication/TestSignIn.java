@@ -1,7 +1,6 @@
 package testauthentication;
 
 import apartments.pom.authenticationpage.SignInPage;
-import apartments.pom.authenticationpage.SignUpPage;
 import apartments.pom.homepage.HomePage;
 import base.BasePage;
 import org.testng.Assert;
@@ -12,7 +11,7 @@ import utils.ExcelData;
 public class TestSignIn extends BasePage {
 
     @Test(priority= 2, groups= {"BAT"},dataProvider = "signindataprovider")
-    public void testUserSignIn(String firstname,String lastname,String email,String password){
+    public void testUserSignIn(String email,String password){
         SignInPage signInPage = new SignInPage();
         HomePage homePage = new HomePage();
         homePage.clickFirstSignInButton();
@@ -26,7 +25,7 @@ public class TestSignIn extends BasePage {
 
         String path= System.getProperty("user.dir")+"\\testdata\\test_data.xlsx";
         ExcelData ex=new ExcelData(path);
-        String data[][]=ex.readStringArrays("signin_aparments.com");
+        String data[][]=ex.readStringArrays("Signin_apartments");
         return data;
 
     }

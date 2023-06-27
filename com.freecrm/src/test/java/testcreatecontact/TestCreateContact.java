@@ -20,6 +20,7 @@ public class TestCreateContact extends BasePage {
         CreateContactPage createContactPage = new CreateContactPage();
         LoginPage loginPage = new LoginPage();
         DashboardPage dashboardPage = new DashboardPage();
+        loginPage.clickLoginButton();
         loginPage.doSignIn(email,password);
         dashboardPage.doClickContactAddButton();
         createContactPage.createNewContact(firstName,lastName,middleName,companyName,tagName,emailAddress,description,timeZone,streetAddress,city,state,zip);
@@ -30,9 +31,9 @@ public class TestCreateContact extends BasePage {
     public String[][] createNewContact()
     {
 
-        String path= System.getProperty("user.dir")+"\\testdata\\test_data.xlsx";
+        String path= System.getProperty("user.dir")+"\\testdata\\test1.xlsx";
         ExcelData ex=new ExcelData(path);
-        String data[][]=ex.readStringArrays("createContact_crm");
+        String data[][]=ex.readStringArrays("Create Contact for CRM");
         return data;
 
     }
