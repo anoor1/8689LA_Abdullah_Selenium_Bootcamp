@@ -25,6 +25,7 @@ public class SignInPage extends BasePage {
     public WebElement secondSignInButton;
 
     public void inputEmailAddress(String email){
+
         sendKeysToElement(emailAddressInput, email);
     }
 

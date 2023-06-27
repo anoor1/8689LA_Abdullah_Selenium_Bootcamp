@@ -34,17 +34,17 @@ public void testLogin(String email,String pass){
         return data;
 
     }
-    @Test(priority = 2, groups={"smoke"})
-    public void testLogOut(){
+    @Test(priority = 2, groups={"smoke"}, dataProvider = "logindataprovider")
+
+    public void testLogOut(String email,String pass){
         HomePage homePage= new HomePage();
+        LoginPage loginPage = new LoginPage();
         DashboardPage dashboardPage=new DashboardPage();
 
+        homePage.clickOnLoginButton();
 
-        LoginPage loginPage= homePage.clickOnLoginButton;
-        String email="abdullah.noor14@gmail.com";
-        String password="Abcd1234!";
 
-        loginPage.doSignIn(email,password);
+        loginPage.doSignIn(email,pass);
         dashboardPage.doLogOut();
 
         Assert.assertTrue(isElementVisible(loginPage.loginButton));

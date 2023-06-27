@@ -15,6 +15,7 @@ public class TestSignIn extends BasePage {
         SignInPage signInPage = new SignInPage();
         HomePage homePage = new HomePage();
         homePage.clickFirstSignInButton();
+
         signInPage.doSignIn(email,password);
         Assert.assertTrue(checkElementPresent(homePage.loggedInUsername));
     }

@@ -20,7 +20,8 @@ public class TestCreateContact extends BasePage {
         CreateContactPage createContactPage = new CreateContactPage();
         LoginPage loginPage = new LoginPage();
         DashboardPage dashboardPage = new DashboardPage();
-        loginPage.clickLoginButton();
+        HomePage homePage = new HomePage();
+        homePage.clickOnLoginButton();
         loginPage.doSignIn(email,password);
         dashboardPage.doClickContactAddButton();
         createContactPage.createNewContact(firstName,lastName,middleName,companyName,tagName,emailAddress,description,timeZone,streetAddress,city,state,zip);

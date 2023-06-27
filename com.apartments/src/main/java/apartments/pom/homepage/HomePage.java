@@ -21,7 +21,8 @@ public class HomePage extends BasePage {
     public WebElement firstSignInButton;
 
 
-    public SignInPage clickFirstSignInButton(){;
+    public SignInPage clickFirstSignInButton(){
+
         safeClickOnElement(firstSignInButton);
 
         return new SignInPage();
