@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import org.testng.annotations.DataProvider;
 import utils.ExcelData;
 
-public class TestLogin extends BasePage {
+public class TestAuthentication extends BasePage {
 
     @Test(priority = 1, groups = {"BAT"}, dataProvider = "logindataprovider")
 
