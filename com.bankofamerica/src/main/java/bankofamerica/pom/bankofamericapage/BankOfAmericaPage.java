@@ -18,10 +18,26 @@ public class BankOfAmericaPage extends BasePage {
     @FindBy(xpath = "//a[@id='finCenterLocator']")
     public WebElement atmButton;
 
+    @FindBy(xpath="//a[@id='NAV_EN_ES']")
+    public WebElement languageButton;
+
+
     public AtmLocatorPage clickOnAtmButton() {
         safeClickOnElement(atmButton);
 
         return new AtmLocatorPage();
 
     }
+
+    public void clickOnSpanishButton(){
+        safeClickOnElement(languageButton);
+    }
+    public void clickOnEnglishButton(){
+        safeClickOnElement(languageButton);
+    }
+    public void clickToSwitchLanguages(){
+       clickOnSpanishButton();
+       clickOnEnglishButton();
+    }
+
 }

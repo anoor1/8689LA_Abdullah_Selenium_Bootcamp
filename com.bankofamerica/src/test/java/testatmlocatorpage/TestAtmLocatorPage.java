@@ -21,22 +21,42 @@ public class TestAtmLocatorPage extends BasePage {
         BankOfAmericaPage bankOfAmericaPage = new BankOfAmericaPage();
         AtmLocatorPage atmLocatorPage = new AtmLocatorPage();
 
-                    bankOfAmericaPage.clickOnAtmButton();
-                    atmLocatorPage.searchForAtm(zip);
-                    Assert.assertTrue(isElementVisible(atmLocatorPage.resultForATM));
-                }
-
-
-
-        @DataProvider(name = "searchatmlocatordataprovider")
-        public String[][] atmLocatorDataProvider ()
-        {
-
-            String path = System.getProperty("user.dir") + "\\src\\test\\resources\\test_data.xlsx";
-            ExcelData ex = new ExcelData(path);
-            String data[][] = ex.readStringArrays("bankofamerica_zip");
-            return data;
-
-        }
+        bankOfAmericaPage.clickOnAtmButton();
+        atmLocatorPage.searchForAtm(zip);
+        Assert.assertTrue(isElementVisible(atmLocatorPage.resultForATM));
     }
+
+
+    @DataProvider(name = "searchatmlocatordataprovider")
+    public String[][] atmLocatorDataProvider() {
+
+        String path = System.getProperty("user.dir") + "\\src\\test\\resources\\test_data.xlsx";
+        ExcelData ex = new ExcelData(path);
+        String data[][] = ex.readStringArrays("bankofamerica_zip");
+        return data;
+
+    }
+
+    @Test(priority = 2, groups = {"BAT"}, dataProvider = "searchinvalidatmlocatordataprovider")
+    public void testInvalidSearchAtmLocator(String zip) {
+
+        HomePage homePage = new HomePage();
+        BankOfAmericaPage bankOfAmericaPage = new BankOfAmericaPage();
+        AtmLocatorPage atmLocatorPage = new AtmLocatorPage();
+
+        bankOfAmericaPage.clickOnAtmButton();
+        atmLocatorPage.searchForAtm(zip);
+        Assert.assertTrue(isElementVisible(atmLocatorPage.resultForATM));
+    }
+
+
+    @DataProvider(name = "searchinvalidatmlocatordataprovider")
+    public String[][] atmInvalidLocatorDataProvider() {
+
+        String path = System.getProperty("user.dir") + "\\src\\test\\resources\\test_data.xlsx";
+        ExcelData ex = new ExcelData(path);
+        String data[][] = ex.readStringArrays("invalid_zip");
+        return data;
+    }
+}
 
