@@ -1,4 +1,4 @@
-package expedia.pom.signinpage;
+package expedia.pom.authentication;
 
 import base.BasePage;
 import expedia.pom.homepage.HomePage;

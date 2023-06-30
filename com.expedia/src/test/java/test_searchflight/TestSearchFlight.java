@@ -1,9 +1,7 @@
 package test_searchflight;
 
-//import authentication.LoginPage;
 import base.BasePage;
 import flightsearchpage.FlightSearchPage;
-//import homepage.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -27,7 +25,7 @@ public class TestSearchFlight extends BasePage {
     public String[][] searchFlightsDataProvider()
     {
 
-        String path= System.getProperty("user.dir")+"\src\test\resources\test_data.xlsx";
+        String path= System.getProperty("user.dir")+"\src\test\resources\test_data_expedia.xlsx";
         ExcelData ex=new ExcelData(path);
         String data[][]=ex.readStringArrays("expedia_search");
         return data;

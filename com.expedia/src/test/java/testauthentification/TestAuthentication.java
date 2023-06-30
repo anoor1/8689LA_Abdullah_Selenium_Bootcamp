@@ -2,7 +2,7 @@ package testauthentification;
 
 import base.BasePage;
 import expedia.pom.homepage.HomePage;
-import expedia.pom.signinpage.LoginPage;
+import expedia.pom.authentication.LoginPage;
 import org.testng.annotations.Test;
 import org.testng.annotations.DataProvider;
 import utils.ExcelData;
