@@ -23,6 +23,24 @@ public class HomePage extends BasePage {
     public WebElement searchSubmitButton;
 
 
+    @FindBy(xpath = "//article[@id='sideLogin-left-rail']//button[@class='button-alt med'][normalize-space()='Log In']")
+    public WebElement loginButton;
+
+
+    @FindBy(xpath="//input[@id=\"InputIdentityFlowValue\"]")
+    public WebElement emailInput;
+
+    @FindBy(xpath = "//button[@id='BtnSubmit']")
+    public WebElement emailSubmitButton;
+
+    @FindBy(xpath = "//input[@id='InputPassword']")
+    public WebElement passwordInput;
+
+    @FindBy(xpath = "//button[@id='BtnSubmit']")
+    public WebElement passwordSubmitButton;
+
+
+
 
     public void clickOnSearchIconButton(){
         safeClickOnElement(searchBarIcon);
@@ -41,5 +59,37 @@ public class HomePage extends BasePage {
 
         return new SearchResultPage();
     }
+
+    public void clickOnLoginButton(){
+        safeClickOnElement(loginButton);
+    }
+    public void inputEmailAddress(String email){
+
+        driver.switchTo().frame("oneid-iframe");
+        sendKeysToElement(emailInput, email);
+    }
+    public void clickOnContinueButton(){
+        safeClickOnElement(emailSubmitButton);
+    }
+
+    public void inputPassword(String password){
+        sendKeysToElement(passwordInput, password);
+    }
+
+    public void clickOnSubmitButton(){
+        safeClickOnElement(passwordSubmitButton);
+    }
+
+    public void doSignIn(String email, String password){
+        clickOnLoginButton();
+        inputEmailAddress(email);
+        clickOnContinueButton();
+        inputPassword(password);
+        clickOnSubmitButton();
+    }
+
+
+
+
 
 }
