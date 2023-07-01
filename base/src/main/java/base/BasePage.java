@@ -47,6 +47,7 @@ public class BasePage {
         databaseInit();
     }
 
+    @BeforeClass
     public void databaseInit() {
         String host = dbConfig.get(BaseConfig.DBProperties.HOST);
         String user = dbConfig.get(BaseConfig.DBProperties.USER);
@@ -56,6 +57,7 @@ public class BasePage {
         db = new Database(host, user, password, className);
     }
 
+    @BeforeClass
     public void dataInit() {
         excel = new ExcelData(DATA_PATH);
     }
