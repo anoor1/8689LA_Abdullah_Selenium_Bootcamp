@@ -17,7 +17,6 @@ public class TestSearch extends BasePage {
     public void testDoSearch(String searchTerm, String validationTerm) {
         HomePage homePage = new HomePage();
 
-
         SearchResultPage searchResultPage = homePage.doSearch(searchTerm);
 
         Assert.assertEquals(searchResultPage.textSearchTerm.getText(), validationTerm);
@@ -26,25 +25,17 @@ public class TestSearch extends BasePage {
     }
 
 
-    public class DataProviders {
-//
-//        String modulePath = System.getProperty("user.dir");
-//        String dataPath = "src" + File.separator + "test" + File.separator + "resources" + File.separator + "test_data.xlsx";
-//        ExcelData excelData = new ExcelData(modulePath + File.separator + dataPath);
-//
-//        @DataProvider(name = "testDoSearch")
-//        public Object[][] getDoSearchDataProvider() {
-//            return excelData.readStringArrays("testDoSearch");
-//        }
+
 @DataProvider(name = "testDoSearch")
 public Object[][] loginDataProvider() {
+        System.out.println(System.getProperty("user.dir"));
 
-    String path= System.getProperty("user.dir")+"\\src\\test\\resources\\test_data.xlsx";
+    String path= System.getProperty("user.dir")+"\\src\\test\\resources\\test_data_ebay.xlsx";
     ExcelData ex = new ExcelData(path);
-    String data[][] = ex.readStringArrays("login_bmw");
+    String data[][] = ex.readStringArrays("testDoSearch");
     return data;
 }
 
-    }
+
 }
 
