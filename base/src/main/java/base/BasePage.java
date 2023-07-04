@@ -81,7 +81,7 @@ public class BasePage {
     @Parameters({"driverConfigEnabled", "browser", "url"})
     @BeforeMethod
 
-    public void driverSetup(@Optional("true") String driverConfigEnabled, @Optional("chrome") String browser, @Optional("https://verizon.com") String url) {
+    public void driverSetup(@Optional("true") String driverConfigEnabled, @Optional("chrome") String browser, @Optional("http://bmwusa.com") String url) {
 
         if (Boolean.parseBoolean(driverConfigEnabled)) {
             driverInit(browser);
@@ -169,6 +169,13 @@ public class BasePage {
 
         webDriverWait.until(ExpectedConditions.visibilityOf(element));
         actions.moveToElement(element).perform();
+    }
+
+    public void clickAndHitEnter(WebElement element,String data) {
+        Actions actions = new Actions(driver);
+
+        webDriverWait.until(ExpectedConditions.visibilityOf(element));
+        actions.moveToElement(element).click(element).sendKeys(data).sendKeys(Keys.ENTER).build().perform();
     }
 
     public String getTrimmedElementText(WebElement element) {

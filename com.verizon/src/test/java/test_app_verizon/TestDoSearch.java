@@ -8,9 +8,9 @@ import verizon.pom.searchpage.SearchPage;
 public class TestDoSearch extends BasePage {
 
     @Test(priority = 1, groups = "smoke")
-    public void testDoSearch(String searchTerm){
+    public void testDoSearch(){
         HomePage homePage = new HomePage();
-        homePage.clickOnSearchTerm();
+        homePage.searchTerm();
 
     }
 }

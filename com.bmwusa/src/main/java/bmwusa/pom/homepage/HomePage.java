@@ -15,6 +15,27 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//a[@class='globalnav-primary-my-bmw__portal-link label-2--bold']")
     public WebElement myBmwButton;
 
+    @FindBy(xpath = "(//button[@aria-label='Search'])[2]")
+    public WebElement searchButton;
+
+    @FindBy(xpath = "(//input[@name='site search'])[2]")
+    public WebElement searchBar;
+
+    public void clickOnSearchButton(){
+        safeClickOnElement(searchButton);
+    }
+
+    public void searchForSomething(String searchTerm){
+        clickOnSearchButton();
+
+        clickAndHitEnter(searchBar, searchTerm);
+
+    }
+
+
+
+
+
 
     public LoginPage clickOnMyBmwButton() {
         safeClickOnElement(myBmwButton);
