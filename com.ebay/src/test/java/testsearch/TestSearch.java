@@ -23,10 +23,7 @@ public class TestSearch extends BasePage {
 
 
     }
-
-
-
-@DataProvider(name = "testDoSearch")
+    @DataProvider(name = "testDoSearch")
 public Object[][] loginDataProvider() {
         System.out.println(System.getProperty("user.dir"));
 
