@@ -1,23 +1,25 @@
-package test_search;
+package teststoresearch;
+
 import base.BasePage;
-import investing.pom.homepage.HomePage;
-import investing.pom.resultpage.ResultPage;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import utils.ExcelData;
+import verizon.pom.homepage.HomePage;
+import verizon.pom.resultspage.ResultsPage;
 
-public class TestSearch extends BasePage {
 
+public class TestStoreSearch extends BasePage {
     @Test(priority= 1, groups= {"BAT"},dataProvider = "searchDataProvider")
 
-    public void testSearchResult(String searchTerm){
+    public void testSearchResult(String zip){
 
         HomePage homePage=new HomePage();
-        ResultPage resultPage= homePage.searchForSomething(searchTerm);
+        ResultsPage resultsPage= new ResultsPage();
+        homePage.doSearch(zip);
+        Assert.assertTrue(isElementVisible(resultsPage.searchResultItems));
 
-        Assert.assertTrue(isElementVisible(resultPage.resultsSum));
+
     }
     @DataProvider(name="searchDataProvider")
     public Object [][] searchResultDataProvider()
@@ -25,9 +27,8 @@ public class TestSearch extends BasePage {
 
         String path= System.getProperty("user.dir")+"\\src\\test\\resources\\test_data.xlsx";
         ExcelData ex=new ExcelData(path);
-        String data[][]=ex.readStringArrays("search term_investing");
+        String data[][]=ex.readStringArrays("verizon_zip");
         return data;
 
     }
-
 }
