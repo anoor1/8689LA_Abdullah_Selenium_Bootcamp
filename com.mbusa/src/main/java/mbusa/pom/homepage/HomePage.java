@@ -11,6 +11,10 @@ public class HomePage extends BasePage {
     public HomePage(){
         PageFactory.initElements(driver,this);
     }
+
+    @FindBy(xpath = "//button[contains(@aria-label,'OK')]")
+    public WebElement okButton;
+
     @FindBy(xpath = "//span[@class='global-header__button-label global-header__button-utility-inner']")
     public WebElement myAccountButton;
 
@@ -24,18 +28,28 @@ public class HomePage extends BasePage {
     public WebElement usernameHeader;
 
     public void clickOnMyAccountButton(){
+
         safeClickOnElement(myAccountButton);
     }
     public void switchToIframe(){
-        switchToFrameByElement(iframe);
+
+        driver.switchTo().frame(iframe);
     }
     public void clickOnLoginButton(){
         safeClickOnElement(loginButton);
 
     }
+    public void clickOnOkButton()
+    {
+
+        safeClickOnElement(okButton);
+
+    }
     public LoginPage workFlowLogin(){
+        getVisibleElement(myAccountButton);
+        clickOnByTabKey();
         clickOnMyAccountButton();
-        switchToIframe();
+      //  switchToIframe();
         clickOnLoginButton();
 
         return new LoginPage();

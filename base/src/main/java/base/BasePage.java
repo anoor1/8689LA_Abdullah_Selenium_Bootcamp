@@ -81,7 +81,7 @@ public class BasePage {
     @Parameters({"driverConfigEnabled", "browser", "url"})
     @BeforeMethod
 
-    public void driverSetup(@Optional("true") String driverConfigEnabled, @Optional("chrome") String browser, @Optional("https://optimum.com") String url) {
+    public void driverSetup(@Optional("true") String driverConfigEnabled, @Optional("chrome") String browser, @Optional("https://mbusa.com") String url) {
 
         if (Boolean.parseBoolean(driverConfigEnabled)) {
             driverInit(browser);
@@ -149,6 +149,18 @@ public class BasePage {
         return element;
     }
 
+    public WebElement getVisibleElement(WebElement element) {
+
+
+        try {
+            fluentWait.until(ExpectedConditions.visibilityOf(element));
+        } catch (ElementNotInteractableException e) {
+            e.printStackTrace();
+        } catch (StaleElementReferenceException e2) {
+            fluentWait.until(ExpectedConditions.visibilityOf(element));
+        }
+        return element;
+    }
     public WebElement getClickableElement(By by) {
         WebElement element;
 
@@ -370,5 +382,13 @@ public class BasePage {
 
     }
     // endregion
+
+    public void clickOnByTabKey()
+    {
+        Actions action=new Actions(driver);
+        action.sendKeys(Keys.ESCAPE).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).build().perform();;
+
+    }
 
 }

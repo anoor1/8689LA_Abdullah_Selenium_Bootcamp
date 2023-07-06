@@ -1,5 +1,6 @@
 package testlogin;
 
+import base.BasePage;
 import mbusa.pom.homepage.HomePage;
 import mbusa.pom.loginpage.LoginPage;
 import mbusa.pom.loginpage.PasswordPage;
@@ -7,7 +8,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utils.ExcelData;
 
-public class TestLogin {
+public class TestLogin extends BasePage {
 
     @Test(priority = 1, groups = {"BAT"}, dataProvider = "logindataprovider")
     public void testLogin(String email, String password) {
