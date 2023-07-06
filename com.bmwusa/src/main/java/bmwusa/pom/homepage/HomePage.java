@@ -32,11 +32,6 @@ public class HomePage extends BasePage {
 
     }
 
-
-
-
-
-
     public LoginPage clickOnMyBmwButton() {
         safeClickOnElement(myBmwButton);
 

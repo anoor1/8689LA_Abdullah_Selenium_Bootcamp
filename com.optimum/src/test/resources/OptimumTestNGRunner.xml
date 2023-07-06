@@ -11,7 +11,8 @@
 
     <test name="test">
         <classes>
-<!--            <class name=""/>-->
+            <class name="testdeals.TestDeals"/>
+            <class name="testaddress.TestAddress"/>
         </classes>
     </test>
 </suite>
