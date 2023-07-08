@@ -49,7 +49,6 @@ public class HomePage extends BasePage {
         getVisibleElement(myAccountButton);
         clickOnByTabKey();
         clickOnMyAccountButton();
-      //  switchToIframe();
         clickOnLoginButton();
 
         return new LoginPage();

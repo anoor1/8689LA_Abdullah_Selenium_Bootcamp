@@ -12,6 +12,7 @@
     <test name="test">
         <classes>
             <class name="testblogdropdown.TestBlogDropDown"/>
+            <class name="testauthentication.TestAuthentication"/>
         </classes>
     </test>
 

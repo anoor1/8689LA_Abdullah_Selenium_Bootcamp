@@ -20,6 +20,27 @@ public class HomePage extends BasePage {
     public WebElement marketDataButton;
 
 
+    @FindBy(xpath = "//button[@aria-label='Sign In / Register']")
+    public WebElement signInButton;
+
+    @FindBy(xpath = "//iframe[@id='universal_pixel_rfdw4bs']")
+    public WebElement iframe;
+
+    @FindBy(xpath = "//input[@id='login-email-input']")
+    public WebElement emailInput;
+
+    @FindBy(xpath = "//button[normalize-space()='Submit']")
+    public WebElement submitButton;
+
+    @FindBy(xpath = "//input[@placeholder='Password']")
+    public WebElement passwordInput;
+
+    @FindBy(xpath = "//button[normalize-space()='Log in']")
+    public WebElement loginButton;
+
+
+
+
 
     public void hoverOverBlogDropdown() {
         hoverOverElement(blogDropdown);
@@ -36,6 +57,41 @@ public class HomePage extends BasePage {
         return new MarketDataPage();
 
     }
+
+    public void clickOnSignInButton(){
+        safeClickOnElement(signInButton);
+    }
+
+    public void switchToIframe(){
+        driver.switchTo().frame(iframe);
+    }
+
+    public void inputEmail(String email){
+        sendKeysToElement(emailInput, email);
+    }
+
+    public void clickOnSubmitButton(){
+        safeClickOnElement(submitButton);
+    }
+
+    public void inputPassword(String password){
+        sendKeysToElement(passwordInput, password);
+    }
+
+    public void clickOnLoginButton(){
+        safeClickOnElement(loginButton);
+    }
+
+    public void DoSignIn(String email, String password){
+        clickOnSignInButton();
+       // switchToIframe();
+        inputEmail(email);
+        clickOnSubmitButton();
+        inputPassword(password);
+        clickOnLoginButton();
+
+    }
+
 }
 
 
