@@ -4,6 +4,7 @@ import base.BasePage;
 import mbusa.pom.homepage.HomePage;
 import mbusa.pom.loginpage.LoginPage;
 import mbusa.pom.loginpage.PasswordPage;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utils.ExcelData;
@@ -19,6 +20,8 @@ public class TestLogin extends BasePage {
         homePage.workFlowLogin();
         loginPage.authenticateEmail(email);
         passwordPage.authenticatePassword(password);
+
+        Assert.assertTrue(isElementVisible(homePage.usernameHeader));
 
 
     }
