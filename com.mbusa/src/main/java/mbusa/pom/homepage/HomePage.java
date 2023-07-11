@@ -2,6 +2,8 @@ package mbusa.pom.homepage;
 
 import base.BasePage;
 import mbusa.pom.loginpage.LoginPage;
+import mbusa.pom.searchpage.SearchPage;
+import mbusa.pom.shoppartspage.ShopPartsPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -48,6 +50,22 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//h2[normalize-space()='Feature Highlights']")
     public WebElement featureHighlightsHeader;
+
+    @FindBy(xpath="//div[@class='full-height-hero__image-container full-height-hero__image-container--width']//a[.='Explore']")
+    public WebElement exploreButton;
+
+    @FindBy(xpath = "//span[.='Shopping']")
+    public WebElement shoppingLink;
+
+    @FindBy(xpath="//span[.='Find a Dealer']")
+    public WebElement findDealer;
+    @FindBy(xpath = "//div[@class='form__input form__input--inline']/input[@class='form__input-field form__input-field--can-reset']")
+    public WebElement zipCodeInputField;
+    @FindBy(xpath = "//button[@class='button button_primary']")
+    public WebElement searchButton;
+
+    @FindBy(xpath= "//ul[@class='location-search__list']/li[contains(.,'Philadelphia, PA')]")
+    public WebElement firstOption;
 
 
 
@@ -111,5 +129,34 @@ public class HomePage extends BasePage {
         clickOnSedan2();
         clickOnCompare();
     }
+
+    public ShopPartsPage clickOnShoppingLink(){
+        safeClickOnElement(shoppingLink);
+        return new ShopPartsPage();
+    }
+
+
+    public void clickOnFindDealer(){
+        safeClickOnElement(findDealer);
+    }
+    public void enterZipCode(String zipCode){
+        sendKeysToElement(zipCodeInputField,zipCode);
+    }
+    public void clickOnFirstOption(){
+        safeClickOnElement(firstOption);
+    }
+    public void clickOnSearchButton(){
+        safeClickOnElement(searchButton);
+    }
+
+    public SearchPage doFindDealer(String zipCode){
+        clickOnFindDealer();
+        enterZipCode(zipCode);
+        clickOnFirstOption();
+        clickOnSearchButton();
+        return new SearchPage();
+    }
+
+
 
 }

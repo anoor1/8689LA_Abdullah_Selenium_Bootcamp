@@ -2,6 +2,7 @@ package testcompare2vehicles;
 
 import base.BasePage;
 import mbusa.pom.homepage.HomePage;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TestCompare2Vehicles extends BasePage {
@@ -10,5 +11,6 @@ public class TestCompare2Vehicles extends BasePage {
     public void testCompareVehicles(){
         HomePage homePage = new HomePage();
         homePage.compareTwoVehicles();
+        Assert.assertTrue(isElementVisible(homePage.featureHighlightsHeader));
     }
 }
