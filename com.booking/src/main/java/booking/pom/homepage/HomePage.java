@@ -55,6 +55,51 @@ public class HomePage extends BasePage {
     public WebElement searchButton;
 
 
+    @FindBy(xpath="//span[.='Flights']")
+    public WebElement flightsButton;
+
+    @FindBy(xpath="//button[3]/div[@class='css-ztjjo9']//span[@class='Text-module__root--variant-body_2___-3fYM Text-module__root--color-disabled___tERfD']")
+    public WebElement whereToInputField;
+    @FindBy(xpath="//input[@class='css-1ejj2j9']")
+    public WebElement airportInputField;
+    @FindBy(xpath = "//ul[@class='css-1eonra']//span[@class='css-3cj1dx']/span[contains(.,'CFU Corfu International Airport')]")
+    public WebElement selectedAirport;
+    @FindBy(css="[placeholder='Depart – Return']")
+    public WebElement departReturnField;
+    @FindBy(xpath = "//div[@class='Calendar-module__content___XsvtK']//tr[2]//span[@class='Calendar-module__date___FlMKj']/span[1]/span[.='11']")
+    public WebElement firstDate;
+    @FindBy(xpath="//div[@class='Calendar-module__content___XsvtK']//tr[2]//span[@class='Calendar-module__date___FlMKj']/span[1]/span[.='12']")
+    public WebElement secondDate;
+
+    @FindBy(xpath="//div[.='Showing 321 results']")
+    public WebElement searchResults;
+
+    @FindBy(xpath = "//label[@for='search_type_option_ROUNDTRIP']//span[@class='InputRadio-module__field___4Jbyo']")
+    public WebElement roundTripRadioButton;
+    @FindBy(xpath = "//label[@for='search_type_option_ONEWAY']//span[@class='InputRadio-module__field___4Jbyo']")
+    public WebElement oneWayRadioButton;
+
+    @FindBy(xpath = "//label[@for='search_type_option_MULTISTOP']//span[@class='InputRadio-module__field___4Jbyo']")
+    public WebElement multiCityRadioButton;
+
+
+    public void clickOnRoundTripRadioButton(){
+        safeClickOnElement(flightsButton);
+        safeClickOnElement(roundTripRadioButton);
+    }
+
+    public void clickOnOneWayRadioButton(){
+        safeClickOnElement(flightsButton);
+        safeClickOnElement(oneWayRadioButton);
+    }
+
+    public void clickOnMultiCityRadioButton(){
+        safeClickOnElement(flightsButton);
+        safeClickOnElement(multiCityRadioButton);
+    }
+
+
+
     public void clickOnStaysButton(){
         safeClickOnElement(staysButton);
     }
@@ -103,4 +148,43 @@ public class HomePage extends BasePage {
         clickOnLanguageButton();
         clickOnFrenchLanguage();
     }
+
+
+    public void clickOnFlightButton(){
+        safeClickOnElement(flightsButton);
+    }
+    public void clickOnWhereToGoButton(){
+        safeClickOnElement(whereToInputField);
+    }
+    public void enterDestinationName(String countryName){
+        sendKeysToElement(airportInputField,countryName);
+    }
+    public void clickOnSelectedAirport(){
+        safeClickOnElement(selectedAirport);
+    }
+
+    public void clickOnDepartReturnButton(){
+        safeClickOnElement(departReturnField);
+    }
+
+    public void clickOnFirstDate(){
+        safeClickOnElement(firstDate);
+    }
+    public void clickOnSecondDate(){
+        safeClickOnElement(secondDate);
+    }
+
+
+
+    public void doSearchFlights(String countryName){
+        clickOnFlightButton();
+        clickOnWhereToGoButton();
+        enterDestinationName(countryName);
+        clickOnSelectedAirport();
+        clickOnDepartReturnButton();
+        clickOnFirstDate();
+        clickOnSecondDate();
+        clickOnSearchButton();
+    }
+
 }
