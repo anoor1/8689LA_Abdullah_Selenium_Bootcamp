@@ -1,4 +1,4 @@
-package flightsearchpage;
+package stayssearchpage;
 
 import base.BasePage;
 import org.openqa.selenium.By;
@@ -6,9 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class FlightSearchPage extends BasePage {
+public class StaysSearchPage extends BasePage {
 
-    public FlightSearchPage(){
+    public StaysSearchPage(){
         PageFactory.initElements(driver,this);
     }
 
@@ -47,7 +47,7 @@ public class FlightSearchPage extends BasePage {
     public void selectDate(String date)
     {
         WebElement dateElement=driver.findElement(By.xpath("(//button[@data-day='"+date+"'])[1]"));
-        clickOnElement(dateElement);
+        safeClickOnElement(dateElement);
 
     }
 
@@ -56,17 +56,17 @@ public class FlightSearchPage extends BasePage {
     public void searchFlight(String goingtocity,String fromDate,String toDate)
     {
 
-        clickOnElement(goingtobutton);
-        clickOnElement(goingtotxtbox);
+        safeClickOnElement(goingtobutton);
+        safeClickOnElement(goingtotxtbox);
         sendKeysToElement(goingtotxtbox,goingtocity);
-        clickOnElement(selectFirstCity);
+        safeClickOnElement(selectFirstCity);
 
-        clickOnElement(checkinDateFieldButton);
+        safeClickOnElement(checkinDateFieldButton);
         selectDate(fromDate);
-        clickOnElement(doneButton);
-        clickOnElement(checkoutDateFieldButton);
+        safeClickOnElement(doneButton);
+        safeClickOnElement(checkoutDateFieldButton);
         selectDate(toDate);
-        clickOnElement(doneButton);
+        safeClickOnElement(doneButton);
         clickOnElement(searchbutton);
 
     }

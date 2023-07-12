@@ -81,7 +81,7 @@ public class BasePage {
     @Parameters({"driverConfigEnabled", "browser", "url"})
     @BeforeMethod
 
-    public void driverSetup(@Optional("true") String driverConfigEnabled, @Optional("chrome") String browser, @Optional("https://booking.com") String url) {
+    public void driverSetup(@Optional("true") String driverConfigEnabled, @Optional("chrome") String browser, @Optional("https://expedia.com") String url) {
 
         if (Boolean.parseBoolean(driverConfigEnabled)) {
             driverInit(browser);
@@ -381,6 +381,7 @@ public class BasePage {
         return flag;
 
     }
+
     // endregion
 
     public void clickOnByTabKey()
@@ -396,4 +397,13 @@ public class BasePage {
         action.click(element).sendKeys(data).sendKeys(Keys.ENTER).build().perform();
     }
 
+
+    protected static boolean checkElementSelected(WebElement element)
+    {
+
+        webDriverWait.until(ExpectedConditions.visibilityOf(element));
+        boolean flag=element.isSelected();
+        return flag;
+
+    }
 }

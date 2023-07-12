@@ -2,6 +2,7 @@ package espn.pom.homepage;
 
 import base.BasePage;
 import espn.pom.searchresultpage.SearchResultPage;
+import espn.pom.tennispage.TennisPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.devtools.v85.page.Page;
 import org.openqa.selenium.support.FindBy;
@@ -38,6 +39,27 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//button[@id='BtnSubmit']")
     public WebElement passwordSubmitButton;
+
+    @FindBy(xpath = "//span[@class='link-text'][normalize-space()='Tennis']")
+    public WebElement tennisDropdown;
+
+    @FindBy(xpath = "//a[@name='&lpos=sitenavdefault+tennis_tennisindex']")
+    public WebElement tennisHomeButton;
+
+    public void hoverOverTennisDropdown(){
+        hoverOverElement(tennisDropdown);
+    }
+
+    public void clickOnTennisHomeButton(){
+        safeClickOnElement(tennisHomeButton);
+    }
+
+    public TennisPage doTennisHomePage(){
+        hoverOverTennisDropdown();
+        clickOnTennisHomeButton();
+
+        return new TennisPage();
+    }
 
 
 
