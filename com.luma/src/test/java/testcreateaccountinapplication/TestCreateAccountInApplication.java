@@ -12,4 +12,5 @@ public class TestCreateAccountInApplication extends BasePage {
         accountpage.createAccount();
         Assert.assertTrue(isElementVisible(accountpage.registeruservalidation));
     }
+
 }
