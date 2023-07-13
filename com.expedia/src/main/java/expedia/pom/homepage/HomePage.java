@@ -1,6 +1,7 @@
 package expedia.pom.homepage;
 
 import base.BasePage;
+import expedia.pom.feedbackpage.FeedBackPage;
 import expedia.pom.flightresultpage.FlightResultPage;
 import expedia.pom.supportpage.SupportPage;
 import org.openqa.selenium.WebElement;
@@ -37,6 +38,83 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//div[contains(text(),'Support')]")
     public WebElement supportButton;
+
+
+
+    @FindBy(xpath = "//div[contains(text(),'English')]")
+    public WebElement englishLanguageButton;
+
+    @FindBy(xpath = "//select[@id='language-selector']")
+    public WebElement languageDropdown;
+
+    @FindBy(xpath = "//button[normalize-space()='Save']")
+    public WebElement saveButtonLanguage;
+
+    @FindBy(xpath = "//div[contains(text(),'Español')]")
+    public WebElement assertSpanishLanguageChange;
+
+
+
+    @FindBy(xpath = "//a[@aria-label='Feedback']")
+    public WebElement feedbackButton;
+
+    @FindBy(xpath = "//div[@class='sub-box websitefeedback sub-box-three-elements']//a[1]")
+    public WebElement websiteFeedback;
+
+    @FindBy(xpath = "//label[@for='page-rating-1']//span[@data-localization='ratings-icon'][contains(text(),'★')]")
+    public WebElement satisfactionButton;
+
+    @FindBy(xpath = "//textarea[@id='verbatim']")
+    public WebElement commentBox;
+
+    @FindBy(xpath = "//button[@id='submit-button']")
+    public WebElement submitCommentButton;
+
+    public FeedBackPage clickOnFeedBackButton(){
+        safeClickOnElement(feedbackButton);
+
+        return new FeedBackPage();
+    }
+    public void clickOnWebSiteFeedBack(){
+        safeClickOnElement(websiteFeedback);
+    }
+    public void clickOnSatisfactionButton(){
+        safeClickOnElement(satisfactionButton);
+    }
+    public void typeInCommentBox(){
+        sendKeysToElement(commentBox, "");
+    }
+
+
+
+    public void clickOnEnglishLanguageButton(){
+        safeClickOnElement(englishLanguageButton);
+    }
+
+    public void clickOnLanguageDropDown(){
+        selectFromDropdownByVisibleText(languageDropdown, "Español");
+    }
+
+    public void clickOnSaveButton(){
+        safeClickOnElement(saveButtonLanguage);
+    }
+
+    public void changeLanguage(){
+        clickOnEnglishLanguageButton();
+        clickOnLanguageDropDown();
+        clickOnSaveButton();
+    }
+
+
+
+
+
+
+
+
+
+
+
     public SupportPage clickOnSupportButton(){
         safeClickOnElement(supportButton);
         return new SupportPage();
