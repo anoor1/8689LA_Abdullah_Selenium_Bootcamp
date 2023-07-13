@@ -2,6 +2,7 @@ package expedia.pom.homepage;
 
 import base.BasePage;
 import expedia.pom.flightresultpage.FlightResultPage;
+import expedia.pom.supportpage.SupportPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -33,6 +34,13 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement flightsSearchButton;
+
+    @FindBy(xpath = "//div[contains(text(),'Support')]")
+    public WebElement supportButton;
+    public SupportPage clickOnSupportButton(){
+        safeClickOnElement(supportButton);
+        return new SupportPage();
+    }
 
     public void clickOnFlightsTab(){
         safeClickOnElement(flightsTab);
