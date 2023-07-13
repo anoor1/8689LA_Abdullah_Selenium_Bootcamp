@@ -15,6 +15,9 @@
             <class name="testradiobutton.TestRadioButton"/>
             <class name="testsearchflight.TestSearchFlight"/>
             <class name="testsearchstays.TestSearchHotels"/>
+            <class name="testcoronapage.TestCoronaPage"/>
+            <class name="testsubscribeemail.TestSubscribeEmail"/>
+            <class name="testattractionsbutton.TestAttractionsButton"/>
 
         </classes>
 

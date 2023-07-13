@@ -1,6 +1,7 @@
 package booking.pom.homepage;
 
 import base.BasePage;
+import booking.pom.attractionspage.AttractionsPage;
 import booking.pom.stayssearchresultpage.StaysSearchResultPage;
 import config.BaseConfig;
 import org.openqa.selenium.WebElement;
@@ -81,6 +82,36 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//label[@for='search_type_option_MULTISTOP']//span[@class='InputRadio-module__field___4Jbyo']")
     public WebElement multiCityRadioButton;
+
+
+    @FindBy(xpath = "//input[@id='newsletter_to']")
+    public WebElement subscribeEmailBar;
+
+    @FindBy(xpath = "//button[@id='newsletter_button_footer']")
+    public WebElement subscribeButton;
+
+    @FindBy(xpath = "//a[@id='attractions']")
+    public WebElement attractionsButton;
+
+   public AttractionsPage clickOnAttractionsButton(){
+       safeClickOnElement(attractionsButton);
+
+       return new AttractionsPage();
+   }
+
+
+
+
+    public void inputEmailForSubscription(String email){
+        sendKeysToElement(subscribeEmailBar,email);
+    }
+    public void clickOnSubscribe(){
+        safeClickOnElement(subscribeButton);
+    }
+    public void doSubscribeEmail(String email){
+        inputEmailForSubscription(email);
+        clickOnSubscribe();
+    }
 
 
     public void clickOnRoundTripRadioButton(){
