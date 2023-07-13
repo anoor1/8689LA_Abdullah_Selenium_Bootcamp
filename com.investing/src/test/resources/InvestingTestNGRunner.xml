@@ -8,5 +8,18 @@
 
     <parameter name="browser" value="chrome"/>
     <parameter name="url" value="https://www.investing.com/"/>
+    <test name="BAT">
+        <classes>
+
+            <class name="test_search.TestSearch"/>
+            <class name="testaddtowatchlist.TestAddToWatchlist"/>
+            <class name="testauthentication.TestAuthentication"/>
+            <class name="testdynamictable.TestBondsTab"/>
+            <class name="testdynamictable.TestCommoditiesTab"/>
+            <class name="testdynamictable.TestIndicesTab"/>
+            <class name="testdynamictable.TestStocksTab"/>
+
+        </classes>
+    </test>
 
 </suite>

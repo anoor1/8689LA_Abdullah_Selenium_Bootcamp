@@ -9,4 +9,14 @@
     <parameter name="browser" value="chrome"/>
     <parameter name="url" value="http://espn.com"/>
 
+    <test name="BAT">
+        <classes>
+            <class name="testembeddedmedia.TestEmbeddedMedia"/>
+            <class name="testsearchresult.TestSearchResult"/>
+            <class name="testsignin.TestSignIn"/>
+
+        </classes>
+
+    </test>
+
 </suite>

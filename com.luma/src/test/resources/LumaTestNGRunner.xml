@@ -9,4 +9,21 @@
     <parameter name="browser" value="chrome"/>
     <parameter name="url" value="https://magento.softwaretestingboard.com/"/>
 
+    <test name="BAT">
+        <classes>
+            <class name="testaddmodifycartdata.TestAddModifyCartData"/>
+            <class name="testcategoryresult.TestCategoryResult"/>
+            <class name="testcontactussubmit.TestContactUsSubmit"/>
+            <class name="testcreateaccountinapplication.TestCreateAccountInApplication"/>
+            <class name="testcreateaccountusingdataprovider.TestCreateAccountUsingDataProvider"/>
+            <class name="testlogin.TestLogin"/>
+            <class name="testloginusingdataprovider.TestLoginUsingDataProvider"/>
+            <class name="testnavigationtoapplication.TestNavigationToApplication"/>
+            <class name="testsearchinvalidresult.TestSearchInvalidResult"/>
+            <class name="testsearchitemdataprovider.TestSearchItemDataProvider"/>
+            <class name="testsubscribewithemail.TestSubscribeWithEmail"/>
+
+        </classes>
+    </test>
+
 </suite>

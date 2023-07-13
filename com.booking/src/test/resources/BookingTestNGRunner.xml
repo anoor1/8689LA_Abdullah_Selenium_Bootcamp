@@ -9,4 +9,15 @@
     <parameter name="browser" value="chrome"/>
     <parameter name="url" value="http://booking.com"/>
 
+    <test name="BAT">
+        <classes>
+            <class name="testlanguagechange.TestChangeLanguage"/>
+            <class name="testradiobutton.TestRadioButton"/>
+            <class name="testsearchflight.TestSearchFlight"/>
+            <class name="testsearchstays.TestSearchHotels"/>
+
+        </classes>
+
+    </test>
+
 </suite>

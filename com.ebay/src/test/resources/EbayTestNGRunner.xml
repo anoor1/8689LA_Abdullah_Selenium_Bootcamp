@@ -9,4 +9,15 @@
     <parameter name="browser" value="chrome"/>
     <parameter name="url" value="http://ebay.com"/>
 
+    <test name="BAT">
+        <classes>
+
+            <class name="testaddtocart.TestAddToCart"/>
+            <class name="testlogin.TestLogin"/>
+            <class name="testsearch.TestSearch"/>
+
+    </classes>
+
+    </test>
+
 </suite>

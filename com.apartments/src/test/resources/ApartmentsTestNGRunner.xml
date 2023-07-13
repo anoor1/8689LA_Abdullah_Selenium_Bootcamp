@@ -11,7 +11,9 @@
 
     <test name="BAT">
         <classes>
-            <class name="testauthentication.TestSignUp"/>
+            <class name="testauthentication.TestSignIn"/>
+            <class name="testsearch.TestSearch"/>
+
         </classes>
     </test>
 </suite>
