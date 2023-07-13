@@ -10,6 +10,14 @@
     <parameter name="url" value="http://mbusa.com"/>
 
     <test name="test">
+
+        <classes>
+            <class name="testcompare2vehicles.TestCompare2Vehicles"/>
+            <class name="testfindlocation.TestFindLocation"/>
+            <class name="testlogin.TestLogin"/>
+            <class name="testshopparts.TestShopParts"/>
+
+        </classes>
     </test>
 
 

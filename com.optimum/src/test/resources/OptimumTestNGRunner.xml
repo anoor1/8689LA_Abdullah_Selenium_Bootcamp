@@ -13,6 +13,9 @@
         <classes>
             <class name="testdeals.TestDeals"/>
             <class name="testaddress.TestAddress"/>
+            <class name="testaddtocart.TestAddToCart"/>
+            <class name="testchatwithus.TestChatWithUs"/>
+            <class name="testcheckallphones.TestCheckAllPhones"/>
         </classes>
     </test>
 </suite>
