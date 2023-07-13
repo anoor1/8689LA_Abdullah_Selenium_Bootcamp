@@ -28,7 +28,7 @@ public void testLogin(String email,String pass){
     public String[][] loginDataProvider()
     {
 
-        String path= System.getProperty("user.dir")+"\\testdata\\test_data.xlsx";
+        String path= System.getProperty("user.dir")+"\\src\\test\\resources\\test_data.xlsx";
         ExcelData ex=new ExcelData(path);
         String data[][]=ex.readStringArrays("login_crm");
         return data;

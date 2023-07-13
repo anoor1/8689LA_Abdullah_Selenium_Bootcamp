@@ -2,6 +2,7 @@ package freecrm.pom.loginpage;
 
 import base.BasePage;
 import freecrm.pom.createcontactpage.CreateContactPage;
+import freecrm.pom.taskpage.TaskPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -31,6 +32,12 @@ public class DashboardPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='ui basic button floating item dropdown']/i[@class='settings icon']")
     public WebElement settingIcon;
+
+
+    @FindBy(xpath ="//i[@class='tasks icon']")
+    public  WebElement tasksIcon;
+    @FindBy(xpath ="//div[@id='main-nav']/div[6]/button[@class='ui mini basic icon button']")
+    public  WebElement addTasksIcon;
 
 
 
@@ -66,6 +73,25 @@ public class DashboardPage extends BasePage {
         clickOnSettingButton();
         clickOnLogOutButton();
         return new LoginPage();
+    }
+
+    public void hoverOverTasksIcon(){
+        hoverOverElement(tasksIcon);
+    }
+    public void clickOnAddTasksIcon(){
+        safeClickOnElement(addTasksIcon);
+    }
+
+    public TaskPage hoverClickOnTasksIcon(){
+        hoverOverTasksIcon();
+        clickOnAddTasksIcon();
+        return new TaskPage();
+    }
+
+    public CreateContactPage doClickAddButton(){
+        hoverOverContactIcon();
+        clickContactAddButton();
+        return new CreateContactPage();
     }
 
 }
