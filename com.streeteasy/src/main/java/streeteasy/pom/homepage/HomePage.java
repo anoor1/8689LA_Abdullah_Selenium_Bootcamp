@@ -6,6 +6,7 @@ import org.openqa.selenium.devtools.v85.page.Page;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import streeteasy.pom.manhattanpage.ManhattanPage;
 import streeteasy.pom.marketdatapage.MarketDataPage;
 
 public class HomePage extends BasePage {
@@ -37,6 +38,29 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//button[normalize-space()='Log in']")
     public WebElement loginButton;
+
+
+    @FindBy(xpath = "//button[@aria-label='Buy']")
+    public WebElement buyButton;
+
+    @FindBy(xpath = "//a[@data-gtm-header-menu='Sales'][normalize-space()='Manhattan']")
+    public WebElement manhattanButton;
+
+    public void clickOnBuyButton(){
+        safeClickOnElement(buyButton);
+    }
+    public void clickOnManhattanButton(){
+        safeClickOnElement(manhattanButton);
+
+    }
+    public ManhattanPage goToManhattanPage(){
+        clickOnBuyButton();
+        clickOnManhattanButton();
+
+        return new ManhattanPage();
+    }
+
+
 
 
 
