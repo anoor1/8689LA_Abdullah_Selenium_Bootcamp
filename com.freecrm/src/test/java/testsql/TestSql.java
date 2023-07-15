@@ -14,7 +14,7 @@ public class TestSql extends BasePage {
 
         String query = "SELECT COUNT(*) FROM COMPANIES WHERE NAME = 'Tesla'";
         databaseInit();
-        //excel. } takes from the excelsheet you introduce
+        //excel. } takes frocram the excelsheet you introduce
         Object result = db.executeQueryReadOne(query);
        Assert.assertTrue(result.toString().equals("1"));
 
