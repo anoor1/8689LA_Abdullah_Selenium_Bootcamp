@@ -3,7 +3,6 @@ package testlogin;
 import base.BasePage;
 import bmwusa.pom.homepage.HomePage;
 import bmwusa.pom.loginpage.LoginPage;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utils.ExcelData;

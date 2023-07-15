@@ -13,6 +13,7 @@
         <classes>
             <class name="testblogdropdown.TestBlogDropDown"/>
             <class name="testauthentication.TestAuthentication"/>
+            <class name="testmanhattan.TestManhattan"/>
         </classes>
     </test>
 
